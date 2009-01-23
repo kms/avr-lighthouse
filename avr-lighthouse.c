@@ -26,8 +26,8 @@ ISR(SIG_OUTPUT_COMPARE1A) {
 
     /* Advance timer and move to next symbol if timer has expired. */
     if (i++ >= m.symbols[s % m.length].duration) {
-	s++;
-	i = 0;
+        s++;
+        i = 0;
     }
 
     wdt_reset();
@@ -50,7 +50,7 @@ int main(void) {
     power_timer1_enable();
     ACSR = _BV(ACD);
     DIDR0 = _BV(ADC5D) | _BV(ADC4D) | _BV(ADC3D) | _BV(ADC2D) | 
-	_BV(ADC1D) | _BV(ADC0D);
+        _BV(ADC1D) | _BV(ADC0D);
     DIDR1 = _BV(AIN1D) | _BV(AIN0D);
 
     set_sleep_mode(SLEEP_MODE_IDLE);
@@ -69,6 +69,6 @@ int main(void) {
     sei();
 
     for (;;) {
-	sleep_mode();
+        sleep_mode();
     }
 }
